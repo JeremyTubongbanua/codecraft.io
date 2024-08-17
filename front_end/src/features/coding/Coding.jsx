@@ -29,6 +29,7 @@ export async function action({ request }) {
   const formData = await request.formData();
   const code = formData.get('code');
   const language = formData.get('language');
+  console.log(language);
   const codeList = code.split('\n');
   console.log(codeList);
   const url = `http://166.48.20.39:3000/${language}`;
