@@ -4,6 +4,4 @@ SCRIPT_DIRECTORY="$(dirname "$FULL_PATH_TO_SCRIPT")"
 cd "$SCRIPT_DIRECTORY"
 
 cd ..
-npm i
-npm run build
 sudo docker build -t codecraft.io_server .
