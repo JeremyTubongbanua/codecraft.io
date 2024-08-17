@@ -3,8 +3,9 @@ import AppLayout from './ui/AppLayout';
 import Home from './ui/Home';
 import Courses from './features/courses/Courses';
 import About from './features/about/About';
-import Login from './features/login/Login';
+import Login, { action as loginAction } from './features/login/Login';
 import Coding from './features/coding/Coding';
+import Error from './ui/Error';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
+        action: loginAction,
+        errorElement: <Error />,
       },
       {
         path: '/about',
