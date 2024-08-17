@@ -16,7 +16,7 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (username === 'jeremy' && password === '123') {
+    if (username === 'demo' && password === 'demo') {
       navigate('/courses');
     }
   }
