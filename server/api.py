@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 import subprocess
 import os
 from flask_cors import CORS
+import requests
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
@@ -59,6 +61,32 @@ def handle_python_request():
 @app.route('/javascript', methods=['POST'])
 def handle_javascript_request():
     return handle_code_request('temp.js', [], ['node', 'temp.js'])
+
+@app.route('/prompt', methods=['POST'])
+def handle_prompt_request():
+    data = request.get_json()
+    
+    if 'prompt' not in data:
+        return jsonify({"error": "Invalid input data"}), 400
+    
+    prompt = data['prompt']
+    # Load environment variables from .env file
+    load_dotenv()
+
+    app_id = os.getenv("APP_ID")
+    if not app_id:
+        return jsonify({"error": "Missing app ID"}), 500
+    url = f"http://api.wolframalpha.com/v1/result?i={prompt}&appid={app_id}"
+    
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            result = response.text.strip()
+            return jsonify({"result": result})
+        else:
+            return jsonify({"error": "Failed to get result from Wolfram Alpha"}), 500
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000)
