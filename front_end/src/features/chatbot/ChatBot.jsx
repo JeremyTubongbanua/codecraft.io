@@ -16,7 +16,9 @@ const ChatBot = () => {
 
       // Make API call to Wolfram Alpha
       const prompt = encodeURIComponent(input);
-      const url = `http://166.48.20.39:3000/prompt`;
+      const host = 'jeremymark.ca'; // 166.48.20.39
+
+      const url = `http://${host}:3000/prompt`;
       fetch(url, {
         method: 'POST',
         headers: {
