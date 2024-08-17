@@ -4,15 +4,15 @@ import CourseQuestions from './CourseQuestions';
 const questions = [
   {
     title: 'Question 1',
-    description: 'What is the difference between "==" and "===" in JavaScript?',
+    description: 'In JavaScript, use `console.log` to print "Hello, World!" to the console.',
   },
   {
     title: 'Question 2',
-    description: 'Explain the concept of hoisting in JavaScript.',
+    description: 'Use `let` and `const` to create a program that calculates the area of a circle.',
   },
   {
     title: 'Question 3',
-    description: 'What are closures in JavaScript and how do they work?',
+    description: 'Use `if`, `else if`, and `else` statements to create a program that determines if a number is positive, negative, or zero.',
   },
 ];
 
