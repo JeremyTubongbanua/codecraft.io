@@ -24,12 +24,20 @@ def handle_c_request():
     subprocess.run(['gcc', 'temp.c', '-o', 'temp'])
 
     # run the file
-    result = subprocess.run(['./temp'], stdout=subprocess.PIPE)
+    try:
+        result = subprocess.run(['./temp'], stdout=subprocess.PIPE)
+    except:
+        # if we get error, return that too
+        if result.returncode != 0:
+            return {
+                "data": result.stderr.decode('utf-8')
+            }
 
-    # return json response like this:
-    # {
-    #    "data": "hi\n123\n"
-    # }
+    # delete the temp.c and temp file
+    import os
+    os.remove('temp.c')
+    os.remove('temp')
+
     return {
         "data": result.stdout.decode('utf-8')
     }
@@ -44,7 +52,18 @@ def handle_python_request():
             f.write(line + '\n')
 
     import subprocess
-    result = subprocess.run(['python3', 'temp.py'], stdout=subprocess.PIPE)
+    try:
+        result = subprocess.run(['python3', 'temp.py'], stdout=subprocess.PIPE)
+    except:
+        # if we get error, return that too
+        if result.returncode != 0:
+            return {
+                "data": result.stderr.decode('utf-8')
+            }
+
+    # delete the temp.py file
+    import os
+    os.remove('temp.py')
 
     return {
         "data": result.stdout.decode('utf-8')
@@ -59,7 +78,19 @@ def handle_javascript_request():
             f.write(line + '\n')
 
     import subprocess
-    result = subprocess.run(['node', 'temp.js'], stdout=subprocess.PIPE)
+    try:
+        result = subprocess.run(['node', 'temp.js'], stdout=subprocess.PIPE)
+    except:
+        # if we get error, return that too
+        if result.returncode != 0:
+            return {
+                "data": result.stderr.decode('utf-8')
+            }
+
+
+    # delete the temp.js file
+    import os
+    os.remove('temp.js')
 
     return {
         "data": result.stdout.decode('utf-8')

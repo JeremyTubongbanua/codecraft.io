@@ -1,13 +1,20 @@
-FROM ubuntu
+FROM debian:bullseye-slim
 
 EXPOSE 3000
 
-COPY . /app
 WORKDIR /app
-RUN apt-get update
-RUN apt-get install -y python3 python3-venv python3-pip
+COPY . /app
+
+RUN apt-get update || (sleep 30 && apt-get update) && \
+    apt-get install -y --no-install-recommends \
+    python3 \
+    python3-venv \
+    python3-pip \
+    gcc \
+    build-essential \
+    npm
+
 RUN python3 -m venv /app/my_venv
-RUN . /app/my_venv/bin/activate
 RUN /app/my_venv/bin/pip install -r requirements.txt
-SHELL ["/bin/bash", "-c"]
+
 CMD ["/app/my_venv/bin/python3", "api.py"]
