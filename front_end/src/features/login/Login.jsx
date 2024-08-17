@@ -21,23 +21,24 @@ function Login() {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input type="text" value={username} onChange={handleUsernameChange} className="text-black" />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={handlePasswordChange} className="text-black"  />
-                </label>
-                <br />
-                <button type="submit">Login</button>
-            </form>
+        <div className="flex items-center justify-center h-screen bg-gray-100">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-80">
+            <input
+              type="text"
+              placeholder="Username"
+              className="w-full p-2 mb-4 border border-gray-300 rounded"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full p-2 mb-6 border border-gray-300 rounded"
+            />
+            <button className="w-full py-2 bg-blue-300 text-white rounded hover:bg-blue-400">
+              Login
+            </button>
+          </div>
         </div>
-    );
+      );
 }
 
 export default Login;
