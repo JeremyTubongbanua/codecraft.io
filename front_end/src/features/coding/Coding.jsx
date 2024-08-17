@@ -2,6 +2,7 @@ import { Form, useActionData } from 'react-router-dom';
 
 function Coding({ language }) {
   const output = useActionData();
+  console.log(output);
   return (
     <Form
       className="flex w-full flex-col items-center justify-center gap-5"
@@ -19,8 +20,8 @@ function Coding({ language }) {
         Run Code
       </button>
       <input type="hidden" name="language" value={language} />
-      <div className="border border-gray-300 p-4">
-        Output: {output || '$OUTPUT_PLACEHOLD$'}
+      <div className="border border-gray-300 p-4 whitespace-pre-wrap">
+        {output || 'Click run to execute your code'}
       </div>
     </Form>
   );
@@ -47,7 +48,9 @@ export async function action({ request }) {
 
   const result = await response.json();
 
-  return result.output || ''; // Assuming the API returns the output in this format
+  console.log(result);
+
+  return result.data || ''; // Assuming the API returns the output in this format
 }
 
 export default Coding;
