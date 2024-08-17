@@ -85,7 +85,7 @@ export async function action({ request }) {
   const codeList = code.split('\n');
   console.log(codeList);
   const host = 'jeremymark.ca'; // 166.48.20.39
-  const url = `http://${host}:3000/prompt/${language}`;
+  const url = `http://${host}:3000/${language}`;
   console.log(url);
 
   // Example API request
