@@ -41,7 +41,10 @@ function Courses() {
       {isCourseSelected ? (
         <div className="flex w-full flex-col items-center justify-center gap-10">
           <Outlet />
-          <button onClick={handleBack} className="mb-4 text-blue-500">
+          <button
+            onClick={handleBack}
+            className="mb-4 rounded-lg bg-gray-200 px-4 py-2 text-blue-500"
+          >
             Course Selection
           </button>
         </div>
