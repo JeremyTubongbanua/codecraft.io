@@ -20,8 +20,12 @@ function Coding({ language }) {
         Run Code
       </button>
       <input type="hidden" name="language" value={language} />
-      <div className="border border-gray-300 p-4 whitespace-pre-wrap">
-        {output || 'Click run to execute your code'}
+      <div className="border border-gray-300 p-4">
+        <h3>Output:</h3>
+
+        <div className="whitespace-pre-wrap p-4">
+          {output || 'Click run to execute your code'}
+        </div>
       </div>
     </Form>
   );
