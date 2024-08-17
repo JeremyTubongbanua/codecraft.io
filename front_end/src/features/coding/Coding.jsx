@@ -19,10 +19,11 @@ function Coding({ language }) {
         onChange={(evn) => setCode(evn.target.value)}
         className="h-80 w-1/2 text-wrap rounded-md border border-gray-300 p-2 text-[14px] text-black focus:outline-blue-400"
         style={{
-          color: '#f8f8f2',
+          color: '#f8f7ED',
           backgroundColor: '#2d2d2d',
           fontFamily:
             'Fira code", "Fira Mono", monospace,SF Mono,Consolas,Liberation Mono,Menlo',
+          fontSize: '18px',
         }}
         rehypePlugins={[
           [rehypePrism, { ignoreMissing: true }],
