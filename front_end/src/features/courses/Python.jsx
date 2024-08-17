@@ -4,15 +4,15 @@ import CourseQuestions from './CourseQuestions';
 const questions = [
   {
     title: 'Question 1',
-    description: 'This is the description for question 1.',
+    description: 'Use `print("Hello, World!")` in your `def main():` function to make a basic Hello World program in Python.',
   },
   {
     title: 'Question 2',
-    description: 'This is the description for question 2.',
+    description: 'Use `input()` and `int()` functions to create a program that calculates the area of a circle.',
   },
   {
     title: 'Question 3',
-    description: 'This is the description for question 3.',
+    description: 'Use `if`, `elif`, and `else` statements to create a program that determines if a number is positive, negative, or zero.',
   },
 ];
 

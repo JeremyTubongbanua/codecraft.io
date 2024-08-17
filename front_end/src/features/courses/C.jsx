@@ -4,15 +4,15 @@ import CourseQuestions from './CourseQuestions';
 const questions = [
   {
     title: 'Question 1',
-    description: 'What is the difference between "printf" and "puts" in C?',
+    description: 'Use `#include <stdio.h>` and `printf("Hello, World!\n");` in your `int main() {}` function to make a basic Hello World program in C.',
   },
   {
     title: 'Question 2',
-    description: 'Explain the concept of pointers in C.',
+    description: 'Use `int` and `float` data types to create a program that calculates the area of a circle.',
   },
   {
     title: 'Question 3',
-    description: 'What are the different data types available in C?',
+    description: 'Use `if`, `else if`, and `else` statements to create a program that determines if a number is positive, negative, or zero.',
   },
 ];
 
