@@ -6,6 +6,9 @@ import About from './features/about/About';
 import Login from './features/login/Login';
 import Coding from './features/coding/Coding';
 import Error from './ui/Error';
+import Python from './features/courses/Python';
+import JavaScript from './features/courses/JavaScript';
+import C from './features/courses/C';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,20 @@ const router = createBrowserRouter([
       {
         path: '/courses',
         element: <Courses />,
+        children: [
+          {
+            path: 'python',
+            element: <Python />,
+          },
+          {
+            path: 'javascript',
+            element: <JavaScript />,
+          },
+          {
+            path: 'c',
+            element: <C />,
+          },
+        ],
       },
       {
         path: '/coding',
