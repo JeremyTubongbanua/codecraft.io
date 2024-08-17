@@ -8,7 +8,9 @@ const CourseItem = ({ title, icon, link }) => {
       className="flex w-1/4 flex-col items-center justify-center rounded-md bg-blue-800 p-4 text-white duration-200 hover:bg-blue-600"
     >
       <h2 className="mb-2 text-xl font-bold">{title}</h2>
-      <img src={icon} alt="Course Icon" className="h-16 w-16" />
+      <div className="image-container">
+        <img src={icon} alt="Course Icon" className="course-icon" />
+      </div>
     </Link>
   );
 };
