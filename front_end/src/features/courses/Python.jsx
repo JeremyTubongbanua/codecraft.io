@@ -1,3 +1,4 @@
+import ChatBot from '../chatbot/ChatBot';
 import Coding from '../coding/Coding';
 import CourseQuestions from './CourseQuestions';
 
@@ -22,6 +23,7 @@ function Python() {
       <h2>welcome to python</h2>
       <CourseQuestions questions={questions} />
       <Coding language={'python'}/>
+      <ChatBot/>
     </div>
   );
 }
