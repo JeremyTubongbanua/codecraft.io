@@ -4,7 +4,7 @@ import Home from './ui/Home';
 import Courses from './features/courses/Courses';
 import About from './features/about/About';
 import Login from './features/login/Login';
-import Coding from './features/coding/Coding';
+import Coding, { action as codingAction } from './features/coding/Coding';
 import Error from './ui/Error';
 import Python from './features/courses/Python';
 import JavaScript from './features/courses/JavaScript';
@@ -30,6 +30,7 @@ const router = createBrowserRouter([
           {
             path: 'python',
             element: <Python />,
+            action: codingAction,
           },
           {
             path: 'javascript',
