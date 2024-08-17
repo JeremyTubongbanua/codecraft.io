@@ -6,7 +6,7 @@ import requests
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # Adjust origins as necessary
 
 def handle_code_request(file_name, compile_command, run_command, extra_files=[]):
     data = request.get_json()
