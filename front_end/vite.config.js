@@ -6,10 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['@uiw/react-textarea-code-editor'],
+      external: ['@uiw/react-textarea-code-editor', 'rehype-rewrite'],
       output: {
         globals: {
-          '@uiw/react-textarea-code-editor': 'ReactTextareaCodeEditor'
+          '@uiw/react-textarea-code-editor': 'ReactTextareaCodeEditor',
+          'rehype-rewrite': 'rehypeRewrite'
         }
       }
     }
