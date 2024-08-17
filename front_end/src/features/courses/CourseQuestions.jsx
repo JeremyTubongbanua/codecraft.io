@@ -12,7 +12,7 @@ const CourseQuestions = ({ questions }) => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center gap-5">
       <button
         onClick={handlePreviousQuestion}
         disabled={currentQuestionIndex === 0}

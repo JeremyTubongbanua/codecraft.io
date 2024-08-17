@@ -15,6 +15,7 @@ const questions = [
     description: 'This is the description for question 3.',
   },
 ];
+
 function Python() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">

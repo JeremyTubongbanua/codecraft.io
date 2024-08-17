@@ -12,7 +12,6 @@ function Courses() {
   const navigate = useNavigate();
 
   const isCourseSelected = location.pathname !== '/courses';
-
   const handleBack = () => {
     navigate(-1);
   };
