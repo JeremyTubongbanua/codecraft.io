@@ -1,18 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div className="text-center font-sans">
       {/* Title Section */}
-      <div className="bg-blue-300 p-5 border-b-2 border-blue-400">
-        <h1 className="text-5xl text-white m-0">CodeCraft</h1>
+      <div className="border-b-2 border-blue-400 bg-blue-300 p-5">
+        <Link to="/" className="m-0 text-5xl text-white">
+          CodeCraft
+        </Link>
       </div>
-      
+
       {/* Navigation Section */}
-      <div className="bg-blue-200 p-3 flex justify-around">
-        <a href="#login" className="text-black text-xl no-underline">Login</a>
-        <a href="#courses" className="text-black text-xl no-underline">Courses</a>
-        <a href="#about" className="text-black text-xl no-underline">About</a>
+      <div className="flex justify-around bg-blue-200 p-3">
+        <Link to="/login" className="text-xl text-black no-underline">
+          Login
+        </Link>
+        <Link to="/courses" className="text-xl text-black no-underline">
+          Courses
+        </Link>
+        <Link to="/about" className="text-xl text-black no-underline">
+          About
+        </Link>
       </div>
     </div>
   );
