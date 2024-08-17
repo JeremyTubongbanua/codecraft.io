@@ -4,24 +4,29 @@ import CourseQuestions from './CourseQuestions';
 const questions = [
   {
     title: 'Question 1',
-    description: 'Use `print("Hello, World!")` in your `def main():` function to make a basic Hello World program in Python.',
+    description:
+      'Use `print("Hello, World!")` in your `def main():` function to make a basic Hello World program in Python.',
   },
   {
     title: 'Question 2',
-    description: 'Use `input()` and `int()` functions to create a program that calculates the area of a circle.',
+    description:
+      'Use `input()` and `int()` functions to create a program that calculates the area of a circle.',
   },
   {
     title: 'Question 3',
-    description: 'Use `if`, `elif`, and `else` statements to create a program that determines if a number is positive, negative, or zero.',
+    description:
+      'Use `if`, `elif`, and `else` statements to create a program that determines if a number is positive, negative, or zero.',
   },
 ];
 
 function Python() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">
-      <h2>welcome to python</h2>
+      <h2 className="text-2xl font-bold text-blue-400">
+        Welcome to Python 101!
+      </h2>
       <CourseQuestions questions={questions} />
-      <Coding language={'python'}/>
+      <Coding language={'python'} />
     </div>
   );
 }

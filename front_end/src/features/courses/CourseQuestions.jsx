@@ -34,10 +34,10 @@ const CourseQuestions = ({ questions }) => {
         </svg>
       </button>
       <div className="flex flex-col items-center justify-center">
-        <h2 className="mb-2 text-xl font-bold">
+        <h2 className="mb-2 text-xl font-bold text-white">
           {questions[currentQuestionIndex].title}
         </h2>
-        <p className="text-gray-600">
+        <p className="text-gray-300">
           {questions[currentQuestionIndex].description}
         </p>
       </div>

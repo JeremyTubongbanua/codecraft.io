@@ -10,7 +10,12 @@ function Coding({ language }) {
     >
       <textarea
         className="h-80 w-1/2 text-wrap rounded-md border border-gray-300 p-2 text-black focus:outline-blue-400"
-        style={{ fontFamily: 'Courier New, monospace' }}
+        style={{
+          fontFamily: 'Courier New, monospace',
+          fontSize: '14px',
+          lineHeight: '1.5',
+          padding: '10px',
+        }}
         name="code"
       />
       <button
