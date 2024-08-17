@@ -1,5 +1,11 @@
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import CourseItem from './CourseItem';
+import introPythonIcon from '../../assets/intropython.png';
+import introJSIcon from '../../assets/introjs.png';
+import introCIcon from '../../assets/introc.png';
+import advancedPythonIcon from '../../assets/intropython2.png';
+import advancedJSIcon from '../../assets/introjs2.png';
+import advancedCIcon from '../../assets/introc2.png';
 
 function Courses() {
   const location = useLocation();
@@ -12,22 +18,22 @@ function Courses() {
   };
 
   const courses = [
-    { name: 'Python', icon: 'python-icon', link: '/python' },
-    { name: 'Javascript', icon: 'javascript-icon', link: '/javascript' },
-    { name: 'C', icon: 'c-icon', link: '/c' },
+    { name: 'Python', icon: introPythonIcon, link: '/python' },
+    { name: 'Javascript', icon: introJSIcon, link: '/javascript' },
+    { name: 'C', icon: introCIcon, link: '/c' },
   ];
   const advancedCourses = [
     {
       name: 'Advanced Python',
-      icon: 'advanced-python-icon',
+      icon: advancedPythonIcon,
       link: '/advancedpython',
     },
     {
       name: 'Advanced Javascript',
-      icon: 'advanced-javascript-icon',
+      icon: advancedJSIcon,
       link: '/advancedjavascript',
     },
-    { name: 'Advanced C', icon: 'advanced-c-icon', link: '/advancedc' },
+    { name: 'Advanced C', icon: advancedCIcon, link: '/advancedc' },
   ];
 
   return (
