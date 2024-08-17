@@ -24,23 +24,31 @@ const ChatBot = () => {
         },
         body: JSON.stringify({ prompt: prompt }),
       })
-        .then((response) => response.json())
-        .then((data) => {
-          // Ensure data is valid
-          console.log(data);
-          if (data.error) {
-            console.log(data.error);
-          }
-          const botResponse = data.result;
-          setMessages((prevMessages) => [
-            ...prevMessages,
-            { sender: 'Wolfram', text: botResponse },
-          ]);
+        .then((response) => {
+          return response.json();
         })
-        .catch(() => {
+        .then((data) => {
+          if (data.error) {
+            // If there's an error, display it
+            setMessages((prevMessages) => [
+              ...prevMessages,
+              { sender: 'Wolfram', text: `Error: ${data.error}` },
+            ]);
+          } else {
+            // Otherwise, display the result
+            const botResponse =
+              data.result || "Sorry, I couldn't find an answer.";
+            setMessages((prevMessages) => [
+              ...prevMessages,
+              { sender: 'Wolfram', text: botResponse },
+            ]);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
           setMessages((prevMessages) => [
             ...prevMessages,
-            { sender: 'Wolfram', text: 'Error: Unable to get a response.' },
+            { sender: 'Wolfram', text: 'Error: ' + err.message },
           ]);
         });
 
