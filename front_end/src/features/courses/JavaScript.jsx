@@ -22,6 +22,7 @@ function JavaScript() {
       <h2>Welcome to JavaScript</h2>
       <CourseQuestions questions={questions} />
       <Coding language={'javascript'}/>
+      <ChatBot/>
     </div>
   );
 }
