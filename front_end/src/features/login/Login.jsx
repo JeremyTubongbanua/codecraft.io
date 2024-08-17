@@ -40,7 +40,7 @@ function Login() {
                 type="text"
                 id="username"
                 placeholder="Enter your username"
-                className="w-full rounded border border-gray-300 p-2 text-black"
+                className="w-full rounded border border-gray-300 p-2 text-white"
                 value={username}
                 onChange={handleUsername}
               />
@@ -53,7 +53,7 @@ function Login() {
                 type="password"
                 id="password"
                 placeholder="Enter your password"
-                className="w-full rounded border border-gray-300 p-2 text-black"
+                className="w-full rounded border border-gray-300 p-2 text-white"
                 value={password}
                 onChange={handlePassword}
               />
