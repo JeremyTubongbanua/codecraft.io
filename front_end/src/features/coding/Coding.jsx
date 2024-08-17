@@ -20,7 +20,7 @@ function Coding({ language }) {
       </button>
       <input type="hidden" name="language" value={language} />
       <div className="border border-gray-300 p-4">
-        Output: {output || '$OUTPUT_PLACEHOLDER$'}
+        Output: {output || '$OUTPUT_PLACEHOLD$'}
       </div>
     </Form>
   );
