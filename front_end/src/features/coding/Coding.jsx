@@ -1,14 +1,53 @@
 import { Form, useActionData } from 'react-router-dom';
+import CodeEditor from '@uiw/react-textarea-code-editor';
+import rehypePrism from 'rehype-prism-plus';
+import rehypeRewrite from 'rehype-rewrite';
+import { useState } from 'react';
 
 function Coding({ language }) {
   const output = useActionData();
   console.log(output);
+  const [code, setCode] = useState('');
   return (
     <Form
       className="flex w-full flex-col items-center justify-center gap-5"
       method="POST"
     >
-      <textarea
+      <CodeEditor
+        language={language}
+        placeholder={`Please enter ${language} code.`}
+        onChange={(evn) => setCode(evn.target.value)}
+        className="h-80 w-1/2 text-wrap rounded-md border border-gray-300 p-2 text-black focus:outline-blue-400"
+        style={{
+          backgroundColor: '#f5f5f5',
+          fontFamily:
+            'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+        }}
+        rehypePlugins={[
+          [rehypePrism, { ignoreMissing: true }],
+          [
+            rehypeRewrite,
+            {
+              rewrite: (node, index, parent) => {
+                if (node.properties?.className?.includes('code-line')) {
+                  if (index === 0 && node.properties?.className) {
+                    node.properties.className.push('demo01');
+                    // console.log("~~~", index, node.properties?.className);
+                  }
+                }
+                if (
+                  node.type === 'text' &&
+                  node.value === 'return' &&
+                  parent.children.length === 1
+                ) {
+                  parent.properties.className.push('demo123');
+                }
+              },
+            },
+          ],
+        ]}
+      />
+      {/* <textarea
         className="h-80 w-1/2 text-wrap rounded-md border border-gray-300 p-2 text-black focus:outline-blue-400"
         style={{
           fontFamily: 'Courier New, monospace',
@@ -17,7 +56,8 @@ function Coding({ language }) {
           padding: '10px',
         }}
         name="code"
-      />
+      /> */}
+      <input type="hidden" name="code" value={code} />
       <button
         className="rounded bg-blue-500 px-4 py-2 font-bold text-white duration-200 hover:bg-blue-700"
         type="submit"
