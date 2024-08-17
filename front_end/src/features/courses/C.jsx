@@ -22,6 +22,7 @@ function C() {
       <h2>Welcome to C</h2>
       <CourseQuestions questions={questions} />
       <Coding language={'C'}/>
+      <ChatBot/>
     </div>
   );
 }
