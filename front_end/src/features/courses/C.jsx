@@ -1,3 +1,4 @@
+import ChatBot from '../chatbot/ChatBot';
 import Coding from '../coding/Coding';
 import CourseQuestions from './CourseQuestions';
 
