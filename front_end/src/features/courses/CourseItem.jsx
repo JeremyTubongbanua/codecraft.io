@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CourseItem = ({ title, icon, link }) => {
@@ -9,7 +8,7 @@ const CourseItem = ({ title, icon, link }) => {
     >
       <h2 className="mb-2 text-xl font-bold">{title}</h2>
       <div className="image-container">
-        <img src={icon} alt="Course Icon" className="course-icon" />
+        <img src={icon} alt="Course Icon" className="rounded-md" />
       </div>
     </Link>
   );
