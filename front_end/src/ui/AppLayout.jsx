@@ -4,9 +4,9 @@ import Footer from './Footer';
 
 function AppLayout() {
   return (
-    <div>
+    <div className="flex h-screen flex-col">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Outlet />
       </main>
       <Footer />
