@@ -11,3 +11,5 @@ RUN python3 -m venv /app/my_venv
 RUN /app/my_venv/bin/pip install -r requirements.txt
 
 CMD ["/app/my_venv/bin/python3", "api.py"]
+
+# python3 -m venv my_venv

@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 import subprocess
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 
 def handle_code_request(file_name, compile_command, run_command, extra_files=[]):
     data = request.get_json()
