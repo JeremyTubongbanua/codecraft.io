@@ -31,14 +31,17 @@ export async function action({ request }) {
   const language = formData.get('language');
   const codeList = code.split('\n');
   console.log(codeList);
+  const url = `http://166.48.20.39:3000/${language}`;
+  console.log(url);
 
   // Example API request
-  const response = await fetch(`http://166.48.20.39:3000/${language}`, {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ data: codeList }),
+    mode: 'cors',
   });
 
   const result = await response.json();

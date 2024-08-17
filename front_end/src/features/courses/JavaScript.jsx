@@ -20,8 +20,8 @@ function JavaScript() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">
       <h2>Welcome to JavaScript</h2>
-      <CourseQuestions questions={questions} language={'javascript'} />
-      <Coding />
+      <CourseQuestions questions={questions} />
+      <Coding language={'javascript'}/>
     </div>
   );
 }

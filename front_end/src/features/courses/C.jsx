@@ -20,8 +20,8 @@ function C() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">
       <h2>Welcome to C</h2>
-      <CourseQuestions questions={questions} language={'C'} />
-      <Coding />
+      <CourseQuestions questions={questions} />
+      <Coding language={'C'}/>
     </div>
   );
 }
