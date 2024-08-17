@@ -29,7 +29,8 @@ export async function action({ request }) {
   const formData = await request.formData();
   const code = formData.get('code');
   const language = formData.get('language');
-  console.log(code);
+  const codeList = code.split('\n');
+  console.log(codeList);
 
   // Example API request
   const response = await fetch(`http://166.48.20.39:3000/${language}`, {
@@ -37,7 +38,7 @@ export async function action({ request }) {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ code }),
+    body: JSON.stringify({ data: codeList }),
   });
 
   const result = await response.json();
