@@ -17,11 +17,12 @@ function Coding({ language }) {
         language={language}
         placeholder={`Please enter ${language} code.`}
         onChange={(evn) => setCode(evn.target.value)}
-        className="h-80 w-1/2 text-wrap rounded-md border border-gray-300 p-2 text-black focus:outline-blue-400"
+        className="h-80 w-1/2 text-wrap rounded-md border border-gray-300 p-2 text-[14px] text-black focus:outline-blue-400"
         style={{
-          backgroundColor: '#f5f5f5',
+          color: '#f8f8f2',
+          backgroundColor: '#2d2d2d',
           fontFamily:
-            'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+            'Fira code", "Fira Mono", monospace,SF Mono,Consolas,Liberation Mono,Menlo',
         }}
         rehypePlugins={[
           [rehypePrism, { ignoreMissing: true }],
@@ -83,7 +84,7 @@ export async function action({ request }) {
   const codeList = code.split('\n');
   console.log(codeList);
   const host = 'jeremymark.ca'; // 166.48.20.39
-  const url = `http://${host}:3000/prompt`
+  const url = `http://${host}:3000/prompt/${language}`;
   console.log(url);
 
   // Example API request
