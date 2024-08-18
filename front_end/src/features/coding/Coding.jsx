@@ -5,7 +5,7 @@ import rehypeRewrite from 'rehype-rewrite';
 import { useEffect, useState } from 'react';
 
 function Coding({ language }) {
-  const output = useActionData();
+  const { output, error } = useActionData() || {};
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
@@ -72,10 +72,10 @@ function Coding({ language }) {
         <div className="whitespace-pre-wrap rounded bg-gray-900 p-4 text-gray-300">
           {loading ? (
             <span className="text-yellow-500">Compiling your code...</span>
-          ) : output?.error ? (
-            <span className="text-red-500">{output.error}</span>
+          ) : error ? (
+            <span className="text-red-500">{error}</span>
           ) : (
-            output?.data || 'Click run to execute your code'
+            output || 'Click run to execute your code'
           )}
         </div>
       </div>
@@ -107,11 +107,11 @@ export async function action({ request }) {
 
       result = await response.json();
 
-      if (!response.ok || result.error) {
-        throw new Error(result.error || 'Request failed');
+      if (result.error) {
+        return { error: result.error };
       }
 
-      return { data: result.data || '' };
+      return { output: result.data || '' };
     } catch (error) {
       console.error(`Failed to connect to ${host}: ${error.message}`);
       continue; // Try the next host
