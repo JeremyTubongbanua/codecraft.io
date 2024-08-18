@@ -48,14 +48,17 @@ const router = createBrowserRouter([
           {
             path: 'AdvancedPython',
             element: <AdvancedPython />,
+            action: codingAction,
           },
           {
             path: 'advancedjavascript',
             element: <AdvancedJavaScript />,
+            action: codingAction,
           },
           {
             path: 'advancedc',
             element: <Advancedc />,
+            action: codingAction,
           },
         ],
       },

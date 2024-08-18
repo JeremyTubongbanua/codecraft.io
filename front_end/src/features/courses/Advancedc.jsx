@@ -5,13 +5,11 @@ import CourseQuestions from './CourseQuestions';
 const questions = [
   {
     title: 'Question 1',
-    description:
-      'Write a Program to Swap the values of two variables.',
+    description: 'Write a Program to Swap the values of two variables.',
   },
   {
     title: 'Question 2',
-    description:
-      'Write a Program to calculate Compound Interest.',
+    description: 'Write a Program to calculate Compound Interest.',
   },
   {
     title: 'Question 3',
@@ -23,11 +21,11 @@ const questions = [
 function Advancedc() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">
-      <h2 className="text-2xl font-bold text-blue-400">
+      <h2 className="text-2xl font-bold text-blue-700">
         Welcome to Advanced C!
       </h2>
       <CourseQuestions questions={questions} />
-      <Coding language={'C'} />
+      <Coding language={'c'} />
       <ChatBot />
     </div>
   );

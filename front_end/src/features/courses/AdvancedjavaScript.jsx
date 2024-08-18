@@ -23,11 +23,11 @@ const questions = [
 function AdvancedjavaScript() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">
-      <h2 className="text-2xl font-bold text-blue-400">
+      <h2 className="text-2xl font-bold text-blue-700">
         Welcome to Advanced Javascript!
       </h2>
       <CourseQuestions questions={questions} />
-      <Coding language={'JavaScript'} />
+      <Coding language={'javascript'} />
       <ChatBot />
     </div>
   );
