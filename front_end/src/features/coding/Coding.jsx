@@ -80,13 +80,14 @@ function Coding({ language }) {
 export async function action({ request }) {
   const formData = await request.formData();
   const code = formData.get('code');
-  const language = formData.get('language');
-  console.log(language);
   const codeList = code.split('\n');
-  console.log(codeList);
-  const host = 'http://jeremymark.ca'; // 166.48.20.39
-  const url = `${host}:3000/${language}`;
-  console.log(url);
+  const language = formData.get('language');
+  const host = '166.48.20.39'; // 166.48.20.39
+  const url = `http://${host}:3000/${language}`;
+  console.log(`Language: ${language}`);
+  console.log(`Code: ${code}`);
+  console.log(`Code List: ${codeList}`);
+  console.log(`URL: ${url}`);
 
   // Example API request
   const response = await fetch(url, {
@@ -99,6 +100,10 @@ export async function action({ request }) {
   });
 
   const result = await response.json();
+
+  if(result.error) {
+    return { error: result.error };
+  }
 
   console.log(result);
 
