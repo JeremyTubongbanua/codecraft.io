@@ -1,12 +1,22 @@
-import { Form, useActionData } from 'react-router-dom';
+import { Form, useActionData, useNavigation } from 'react-router-dom';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeRewrite from 'rehype-rewrite';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Coding({ language }) {
   const output = useActionData();
   const [code, setCode] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    if (navigation.state === 'submitting') {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+  }, [navigation.state]);
 
   return (
     <Form
@@ -52,6 +62,7 @@ function Coding({ language }) {
       <button
         className="rounded bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg duration-200 hover:bg-blue-800"
         type="submit"
+        disabled={loading}
       >
         Run Code
       </button>
@@ -59,7 +70,13 @@ function Coding({ language }) {
       <div className="w-2/3 max-w-2xl rounded border border-gray-600 bg-gray-800 p-6 shadow-lg">
         <h3 className="mb-2 text-lg font-bold text-gray-200">Output:</h3>
         <div className="whitespace-pre-wrap rounded bg-gray-900 p-4 text-gray-300">
-          {output || 'Click run to execute your code'}
+          {loading ? (
+            <span className="text-yellow-500">Compiling your code...</span>
+          ) : output?.error ? (
+            <span className="text-red-500">{output.error}</span>
+          ) : (
+            output?.data || 'Click run to execute your code'
+          )}
         </div>
       </div>
     </Form>
@@ -72,12 +89,12 @@ export async function action({ request }) {
   const codeList = code.split('\n');
   const language = formData.get('language');
   const hosts = ['166.48.20.39', 'jeremymark.ca'];
-  
+
   let result;
 
   for (const host of hosts) {
     const url = `http://${host}:3000/${language}`;
-    
+
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -94,14 +111,14 @@ export async function action({ request }) {
         throw new Error(result.error || 'Request failed');
       }
 
-      return result.data || '';
+      return { data: result.data || '' };
     } catch (error) {
       console.error(`Failed to connect to ${host}: ${error.message}`);
-      continue;  // Try the next host
+      continue; // Try the next host
     }
   }
 
-  return { error: 'All hosts are unreachable' };
+  return { error: 'Incorrect Code' };
 }
 
 export default Coding;
