@@ -71,7 +71,21 @@ const ChatBot = () => {
         <div className="rounded-b-lg bg-gray-600 p-3">
           <div className="mb-3 h-64 overflow-y-auto">
             {messages.map((msg, index) => (
-              <div key={index} className="mb-2">
+              <div
+                key={index}
+                className={`mb-2 max-w-xs rounded-lg p-2 ${
+                  msg.sender === 'You'
+                    ? 'self-end bg-blue-400 text-white'
+                    : 'self-start bg-gray-300 text-black'
+                }`}
+                style={{
+                  alignSelf: msg.sender === 'You' ? 'flex-end' : 'flex-start',
+                  borderRadius:
+                    msg.sender === 'You'
+                      ? '20px 20px 0 20px'
+                      : '20px 20px 20px 0',
+                }}
+              >
                 <strong>{msg.sender}:</strong> {msg.text}
               </div>
             ))}

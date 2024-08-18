@@ -6,6 +6,7 @@ import introCIcon from '../../assets/introc.png';
 import advancedPythonIcon from '../../assets/intropython2.png';
 import advancedJSIcon from '../../assets/introjs2.png';
 import advancedCIcon from '../../assets/introc2.png';
+import ChatBot from '../chatbot/ChatBot';
 
 function Courses() {
   const location = useLocation();
@@ -25,14 +26,16 @@ function Courses() {
     {
       name: 'Advanced Python',
       icon: advancedPythonIcon,
-      link: '/advancedpython',
+      link: '/AdvancedPython',
     },
     {
       name: 'Advanced Javascript',
       icon: advancedJSIcon,
-      link: '/advancedjavascript',
+      link: '/AdvancedjavaScript',
     },
-    { name: 'Advanced C', icon: advancedCIcon, link: '/advancedc' },
+    { name: 'Advanced C', 
+      icon: advancedCIcon, 
+      link: '/advancedc' },
   ];
 
   return (
@@ -71,7 +74,9 @@ function Courses() {
               />
             ))}
           </div>
+          <ChatBot />
         </div>
+        
       )}
     </div>
   );

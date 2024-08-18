@@ -9,6 +9,9 @@ import Error from './ui/Error';
 import Python from './features/courses/Python';
 import JavaScript from './features/courses/JavaScript';
 import C from './features/courses/C';
+import AdvancedPython from './features/courses/AdvancedPython';
+import AdvancedJavaScript from './features/courses/AdvancedjavaScript';
+import Advancedc from './features/courses/Advancedc';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +44,18 @@ const router = createBrowserRouter([
             path: 'c',
             element: <C />,
             action: codingAction,
+          },
+          {
+            path: 'AdvancedPython',
+            element: <AdvancedPython />,
+          },
+          {
+            path: 'advancedjavascript',
+            element: <AdvancedJavaScript />,
+          },
+          {
+            path: 'advancedc',
+            element: <Advancedc />,
           },
         ],
       },
