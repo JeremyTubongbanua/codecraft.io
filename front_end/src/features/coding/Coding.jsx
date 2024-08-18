@@ -80,10 +80,10 @@ function Coding({ language }) {
 export async function action({ request }) {
   const formData = await request.formData();
   const code = formData.get('code');
-  const language = formData.get('language');
   const codeList = code.split('\n');
+  const language = formData.get('language');
   const host = '166.48.20.39'; // 166.48.20.39
-  const url = `${host}:3000/${language}`;
+  const url = `http://${host}:3000/${language}`;
   console.log(`Language: ${language}`);
   console.log(`Code: ${code}`);
   console.log(`Code List: ${codeList}`);
@@ -100,6 +100,10 @@ export async function action({ request }) {
   });
 
   const result = await response.json();
+
+  if(result.error) {
+    return { error: result.error };
+  }
 
   console.log(result);
 
