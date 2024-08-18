@@ -71,25 +71,37 @@ export async function action({ request }) {
   const code = formData.get('code');
   const codeList = code.split('\n');
   const language = formData.get('language');
-  const host = '166.48.20.39';
-  const url = `http://${host}:3000/${language}`;
+  const hosts = ['166.48.20.39', 'jeremymark.ca'];
+  
+  let result;
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ data: codeList }),
-    mode: 'cors',
-  });
+  for (const host of hosts) {
+    const url = `http://${host}:3000/${language}`;
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data: codeList }),
+        mode: 'cors',
+      });
 
-  const result = await response.json();
+      result = await response.json();
 
-  if (result.error) {
-    return { error: result.error };
+      if (!response.ok || result.error) {
+        throw new Error(result.error || 'Request failed');
+      }
+
+      return result.data || '';
+    } catch (error) {
+      console.error(`Failed to connect to ${host}: ${error.message}`);
+      continue;  // Try the next host
+    }
   }
 
-  return result.data || '';
+  return { error: 'All hosts are unreachable' };
 }
 
 export default Coding;
