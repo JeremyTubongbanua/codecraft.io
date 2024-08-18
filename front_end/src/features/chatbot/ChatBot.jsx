@@ -59,16 +59,16 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="fixed bottom-2 right-2 w-72 rounded-lg bg-blue-500 text-white shadow-lg">
+    <div className="fixed bottom-2 right-2 w-72 rounded-lg bg-yellow-300 text-gray-700 shadow-lg">
       <div
         className="flex cursor-pointer items-center justify-between rounded-t-lg p-3"
         onClick={toggleChat}
       >
-        <span className="font-semibold">Wolfram Personal Tutor</span>
+        <span className="font-bold">Wolfram Personal Tutor</span>
         <span className="text-xl font-semibold">&times;</span>
       </div>
       {isOpen && (
-        <div className="rounded-b-lg bg-gray-600 p-3">
+        <div className="rounded-b-lg bg-gradient-to-t from-gray-600 to-yellow-300 p-3">
           <div className="mb-3 h-64 overflow-y-auto">
             {messages.map((msg, index) => (
               <div
@@ -92,7 +92,7 @@ const ChatBot = () => {
           </div>
           <input
             type="text"
-            className="w-full rounded border border-white bg-gray-600 p-2 font-semibold focus:outline-white"
+            className="w-full rounded border border-white bg-gray-600 p-2 font-semibold text-white focus:outline-white"
             placeholder="Type a message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
