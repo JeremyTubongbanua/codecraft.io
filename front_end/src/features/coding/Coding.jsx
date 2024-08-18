@@ -81,12 +81,13 @@ export async function action({ request }) {
   const formData = await request.formData();
   const code = formData.get('code');
   const language = formData.get('language');
-  console.log(language);
   const codeList = code.split('\n');
-  console.log(codeList);
   const host = '166.48.20.39'; // 166.48.20.39
   const url = `${host}:3000/${language}`;
-  console.log(url);
+  console.log(`Language: ${language}`);
+  console.log(`Code: ${code}`);
+  console.log(`Code List: ${codeList}`);
+  console.log(`URL: ${url}`);
 
   // Example API request
   const response = await fetch(url, {
