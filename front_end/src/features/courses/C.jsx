@@ -22,7 +22,7 @@ function C() {
     <div className="flex w-full flex-col gap-10 text-center">
       <h2>Welcome to C</h2>
       <CourseQuestions questions={questions} />
-      <Coding language={'C'}/>
+      <Coding language={'c'}/>
       <ChatBot/>
     </div>
   );
