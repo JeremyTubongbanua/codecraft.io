@@ -65,13 +65,24 @@ const ChatBot = () => {
         onClick={toggleChat}
       >
         <span className="font-semibold">Wolfram Craft Bot</span>
-        <span className="text-xl font-semibold">&times;</span>
+        <span className="text-xl font-semibold">×</span>
       </div>
       {isOpen && (
         <div className="rounded-b-lg bg-gray-600 p-3">
           <div className="mb-3 h-64 overflow-y-auto">
             {messages.map((msg, index) => (
-              <div key={index} className="mb-2">
+              <div
+                key={index}
+                className={`mb-2 p-2 rounded-lg max-w-xs ${
+                  msg.sender === 'You'
+                    ? 'bg-blue-400 text-white self-end'
+                    : 'bg-gray-300 text-black self-start'
+                }`}
+                style={{
+                  alignSelf: msg.sender === 'You' ? 'flex-end' : 'flex-start',
+                  borderRadius: msg.sender === 'You' ? '20px 20px 0 20px' : '20px 20px 20px 0',
+                }}
+              >
                 <strong>{msg.sender}:</strong> {msg.text}
               </div>
             ))}
