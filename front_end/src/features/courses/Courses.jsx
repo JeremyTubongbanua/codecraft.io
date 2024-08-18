@@ -33,9 +33,7 @@ function Courses() {
       icon: advancedJSIcon,
       link: '/AdvancedjavaScript',
     },
-    { name: 'Advanced C', 
-      icon: advancedCIcon, 
-      link: '/advancedc' },
+    { name: 'Advanced C', icon: advancedCIcon, link: '/advancedc' },
   ];
 
   return (
@@ -53,7 +51,10 @@ function Courses() {
           </button>
         </div>
       ) : (
-        <div className="flex w-3/4 flex-col gap-20 py-20">
+        <div className="flex w-3/4 flex-col gap-20">
+          <h2 className="text-center text-5xl font-bold text-blue-800 underline">
+            Course Selection
+          </h2>
           <div className="flex justify-evenly">
             {courses.map((course) => (
               <CourseItem
@@ -76,7 +77,6 @@ function Courses() {
           </div>
           <ChatBot />
         </div>
-        
       )}
     </div>
   );
