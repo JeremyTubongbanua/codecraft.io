@@ -59,12 +59,12 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="fixed bottom-12 right-5 w-72 rounded-lg bg-blue-500 text-white shadow-lg">
+    <div className="fixed bottom-2 right-2 w-72 rounded-lg bg-blue-500 text-white shadow-lg">
       <div
         className="flex cursor-pointer items-center justify-between rounded-t-lg p-3"
         onClick={toggleChat}
       >
-        <span className="font-semibold">Wolfram Craft Bot</span>
+        <span className="font-semibold">Wolfram Personal Tutor</span>
         <span className="text-xl font-semibold">&times;</span>
       </div>
       {isOpen && (

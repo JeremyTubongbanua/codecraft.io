@@ -17,48 +17,56 @@ function Login() {
     e.preventDefault();
 
     if (username === 'demo' && password === 'demo') {
-      navigate('/courses');
+      navigate('/home');
     }
   }
 
   return (
     <div className="flex h-screen flex-col">
-      <header className="bg-blue-600 py-4">
-        <h1 className="text-center text-3xl font-bold text-white">
+      <header className="bg-gradient-to-r from-blue-400 to-indigo-600 py-4 shadow-md">
+        <h1 className="text-center text-4xl font-extrabold text-yellow-300">
           codecraft.io
         </h1>
       </header>
       <form onSubmit={handleSubmit} className="h-full">
-        <div className="flex h-full items-center justify-center bg-gray-100">
-          <div className="w-80 rounded-lg bg-white p-8 shadow-lg">
-            <h2 className="mb-6 text-2xl font-bold text-blue-600">Login</h2>
+        <div className="flex h-full items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-200">
+          <div className="w-80 rounded-xl bg-opacity-20 bg-gradient-to-r from-blue-200 to-indigo-300 p-8 shadow-lg backdrop-blur-lg">
+            <h2 className="mb-6 text-center text-3xl font-bold text-blue-500">
+              Login
+            </h2>
             <div className="mb-4">
-              <label htmlFor="username" className="text-gray-700">
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium text-blue-500"
+              >
                 Username
               </label>
               <input
                 type="text"
                 id="username"
                 placeholder="Enter your username"
-                className="w-full rounded border border-gray-300 p-2 text-black"
+                className="w-full rounded-lg border border-gray-300 p-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={username}
                 onChange={handleUsername}
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="password" className="text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-blue-500"
+              >
                 Password
               </label>
               <input
                 type="password"
                 id="password"
                 placeholder="Enter your password"
-                className="w-full rounded border border-gray-300 p-2 text-black"
+                className="w-full rounded-lg border border-gray-300 p-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={password}
                 onChange={handlePassword}
               />
             </div>
-            <button className="w-full rounded bg-blue-500 py-2 text-white duration-200 hover:bg-blue-600">
+            <button className="w-full transform rounded-lg bg-yellow-300 py-3 text-lg font-bold text-blue-800 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50">
               Login
             </button>
           </div>

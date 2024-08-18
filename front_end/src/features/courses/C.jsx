@@ -5,25 +5,28 @@ import CourseQuestions from './CourseQuestions';
 const questions = [
   {
     title: 'Question 1',
-    description: 'Use `#include <stdio.h>` and `printf("Hello, World!\n");` in your `int main() {}` function to make a basic Hello World program in C.',
+    description:
+      'Use `#include <stdio.h>` and `printf("Hello, World!\n");` in your `int main() {}` function to make a basic Hello World program in C.',
   },
   {
     title: 'Question 2',
-    description: 'Use `int` and `float` data types to create a program that calculates the area of a circle.',
+    description:
+      'Use `int` and `float` data types to create a program that calculates the area of a circle.',
   },
   {
     title: 'Question 3',
-    description: 'Use `if`, `else if`, and `else` statements to create a program that determines if a number is positive, negative, or zero.',
+    description:
+      'Use `if`, `else if`, and `else` statements to create a program that determines if a number is positive, negative, or zero.',
   },
 ];
 
 function C() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">
-      <h2>Welcome to C</h2>
+      <h2 className="text-2xl font-bold text-blue-700">Welcome to Intro to C</h2>
       <CourseQuestions questions={questions} />
-      <Coding language={'c'}/>
-      <ChatBot/>
+      <Coding language={'c'} />
+      <ChatBot />
     </div>
   );
 }

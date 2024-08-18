@@ -36,37 +36,39 @@ function Courses() {
   ];
 
   return (
-    <div className="flex h-full w-full items-center justify-center">
+    <div className="flex h-full w-full items-center justify-center bg-gradient-to-t from-blue-200 to-indigo-300">
       {isCourseSelected ? (
         <div className="flex w-full flex-col items-center justify-center gap-10">
-          <Outlet />
+          <div className="w-3/4 rounded-xl bg-white bg-opacity-20 p-10 shadow-lg backdrop-blur-lg">
+            <Outlet />
+          </div>
           <button
             onClick={handleBack}
-            className="mb-4 rounded-lg bg-gray-200 px-4 py-2 text-blue-500"
+            className="mb-4 transform rounded-lg bg-yellow-300 px-6 py-3 text-lg font-bold text-blue-800 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
           >
             Course Selection
           </button>
         </div>
       ) : (
-        <div className="flex h-full w-3/4 flex-col justify-evenly gap-20 py-20">
-          <div className="flex h-3/4 justify-evenly">
+        <div className="flex w-3/4 flex-col gap-20 py-20">
+          <div className="flex justify-evenly">
             {courses.map((course) => (
               <CourseItem
                 key={course.name}
                 title={course.name}
                 link={course.link}
                 icon={course.icon}
-              ></CourseItem>
+              />
             ))}
           </div>
-          <div className="flex h-3/4 justify-evenly">
+          <div className="flex justify-evenly">
             {advancedCourses.map((course) => (
               <CourseItem
                 key={course.name}
                 title={course.name}
                 link={course.link}
                 icon={course.icon}
-              ></CourseItem>
+              />
             ))}
           </div>
         </div>

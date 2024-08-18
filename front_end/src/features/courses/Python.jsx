@@ -23,8 +23,8 @@ const questions = [
 function Python() {
   return (
     <div className="flex w-full flex-col gap-10 text-center">
-      <h2 className="text-2xl font-bold text-blue-400">
-        Welcome to Python 101!
+      <h2 className="text-2xl font-bold text-blue-700">
+        Welcome to Intro to Python!
       </h2>
       <CourseQuestions questions={questions} />
       <Coding language={'python'} />

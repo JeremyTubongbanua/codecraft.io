@@ -16,7 +16,7 @@ const CourseQuestions = ({ questions }) => {
       <button
         onClick={handlePreviousQuestion}
         disabled={currentQuestionIndex === 0}
-        className="mr-2 rounded-full bg-blue-400 p-2 hover:bg-blue-500 focus:outline-none"
+        className="mr-2 rounded-full bg-yellow-300 p-2 text-blue-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,17 +34,17 @@ const CourseQuestions = ({ questions }) => {
         </svg>
       </button>
       <div className="flex flex-col items-center justify-center">
-        <h2 className="mb-2 text-xl font-bold text-white">
+        <h2 className="mb-2 text-xl font-bold text-blue-900">
           {questions[currentQuestionIndex].title}
         </h2>
-        <p className="text-gray-300">
+        <p className="text-blue-800">
           {questions[currentQuestionIndex].description}
         </p>
       </div>
       <button
         onClick={handleNextQuestion}
         disabled={currentQuestionIndex === questions.length - 1}
-        className="ml-2 rounded-full bg-blue-400 p-2 hover:bg-blue-500 focus:outline-none"
+        className="ml-2 rounded-full bg-yellow-300 p-2 text-blue-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

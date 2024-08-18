@@ -5,7 +5,10 @@ const Header = () => {
     <div className="text-center font-sans">
       {/* Title Section */}
       <div className="bg-blue-600 p-5 py-4">
-        <Link to="/home" className="text-center text-3xl font-bold text-white">
+        <Link
+          to="/home"
+          className="text-center text-3xl font-bold text-yellow-300"
+        >
           codecraft.io
         </Link>
       </div>

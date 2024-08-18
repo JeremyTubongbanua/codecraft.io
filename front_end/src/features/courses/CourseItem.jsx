@@ -4,7 +4,7 @@ const CourseItem = ({ title, icon, link }) => {
   return (
     <Link
       to={`/courses${link}`}
-      className="flex w-1/4 flex-col items-center justify-center rounded-md border-2 border-sky-500 bg-blue-900 p-4 text-white duration-200 hover:bg-blue-800"
+      className="flex w-1/4 flex-col items-center justify-center rounded-xl border-2 border-sky-500 bg-blue-900 p-4 text-white duration-200 hover:bg-blue-800"
       style={{ textDecoration: 'none' }}
     >
       <h2 className="mb-6 text-xl font-bold">{title}</h2>
