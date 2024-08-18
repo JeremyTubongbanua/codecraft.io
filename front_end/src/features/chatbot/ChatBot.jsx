@@ -13,47 +13,57 @@ const ChatBot = () => {
     if (input.trim() !== '') {
       const newMessages = [...messages, { sender: 'You', text: input }];
       setMessages(newMessages);
-
-      // Make API call to Wolfram Alpha
+  
       const prompt = encodeURIComponent(input);
-      const host = '166.48.20.39'; // 166.48.20.39
-
-      const url = `http://${host}:3000/prompt`;
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt: prompt }),
-      })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          if (data.error) {
-            // If there's an error, display it
-            setMessages((prevMessages) => [
-              ...prevMessages,
-              { sender: 'Wolfram', text: `Error: ${data.error}` },
-            ]);
-          } else {
-            // Otherwise, display the result
-            const botResponse =
-              data.result || "Sorry, I couldn't find an answer.";
+      const hosts = ['166.48.20.39', 'jeremymark.ca'];
+      
+      const tryFetch = async (host) => {
+        const url = `http://${host}:3000/prompt`;
+        
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ prompt: prompt }),
+          });
+  
+          const data = await response.json();
+  
+          if (!response.ok || data.error) {
+            throw new Error(data.error || 'Request failed');
+          }
+  
+          return data;
+        } catch (err) {
+          console.log(`Failed to connect to ${host}: ${err.message}`);
+          throw err; // Re-throw to handle in the calling loop
+        }
+      };
+  
+      (async () => {
+        for (const host of hosts) {
+          try {
+            const data = await tryFetch(host);
+  
+            const botResponse = data.result || "Sorry, I couldn't find an answer.";
             setMessages((prevMessages) => [
               ...prevMessages,
               { sender: 'Wolfram', text: botResponse },
             ]);
+            break; // Exit the loop once successful
+          } catch (err) {
+            if (host === hosts[hosts.length - 1]) { // If this was the last host
+              setMessages((prevMessages) => [
+                ...prevMessages,
+                { sender: 'Wolfram', text: 'Error: ' + err.message },
+              ]);
+            }
           }
-        })
-        .catch((err) => {
-          console.log(err);
-          setMessages((prevMessages) => [
-            ...prevMessages,
-            { sender: 'Wolfram', text: 'Error: ' + err.message },
-          ]);
-        });
-
+        }
+      })();
+  
       setInput('');
     }
   };
